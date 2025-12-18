@@ -1,9 +1,15 @@
 import { Mail, Linkedin, Instagram } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ContactSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section id="contact" className="section-padding bg-primary text-primary-foreground">
-      <div className="container-width text-center">
+      <div
+        className={`container-width text-center scroll-reveal-fade ${isVisible ? 'visible' : ''}`}
+        ref={sectionRef}
+      >
         {/* Headline */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
           Let's Connect

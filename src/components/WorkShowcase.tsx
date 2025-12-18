@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Video, Image, FileText, Camera } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const categories = [
   { id: 'all', label: 'All', icon: null },
@@ -39,7 +40,7 @@ const cameraItems = [
   { id: 4, src: '/placeholder.svg', title: 'On Camera 4' },
 ];
 
-const VideoCard = ({ src, title }: { src: string; title: string }) => {
+const VideoCard = ({ src, title, delay, isVisible }: { src: string; title: string; delay: number; isVisible: boolean }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -69,7 +70,11 @@ const VideoCard = ({ src, title }: { src: string; title: string }) => {
   const isPlaceholder = src === '/placeholder.svg';
 
   return (
-    <div ref={containerRef} className="card-elevated aspect-video overflow-hidden group">
+    <div
+      ref={containerRef}
+      className={`card-elevated aspect-video overflow-hidden group scroll-reveal ${isVisible ? 'visible' : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {isPlaceholder ? (
         <div className="w-full h-full flex flex-col items-center justify-center gap-4 border-2 border-dashed border-border">
           <Video className="h-12 w-12 text-muted-foreground" />
@@ -94,11 +99,14 @@ const VideoCard = ({ src, title }: { src: string; title: string }) => {
   );
 };
 
-const ImageCard = ({ src, title }: { src: string; title: string }) => {
+const ImageCard = ({ src, title, delay, isVisible }: { src: string; title: string; delay: number; isVisible: boolean }) => {
   const isPlaceholder = src === '/placeholder.svg';
 
   return (
-    <div className="card-elevated aspect-square overflow-hidden group">
+    <div
+      className={`card-elevated aspect-square overflow-hidden group scroll-reveal ${isVisible ? 'visible' : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {isPlaceholder ? (
         <div className="w-full h-full flex flex-col items-center justify-center gap-4 border-2 border-dashed border-border">
           <Image className="h-12 w-12 text-muted-foreground" />
@@ -119,11 +127,14 @@ const ImageCard = ({ src, title }: { src: string; title: string }) => {
   );
 };
 
-const WritingCard = ({ src, title }: { src: string; title: string }) => {
+const WritingCard = ({ src, title, delay, isVisible }: { src: string; title: string; delay: number; isVisible: boolean }) => {
   const isPlaceholder = src === '/placeholder.svg';
 
   return (
-    <div className="card-elevated aspect-[4/3] overflow-hidden group">
+    <div
+      className={`card-elevated aspect-[4/3] overflow-hidden group scroll-reveal ${isVisible ? 'visible' : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {isPlaceholder ? (
         <div className="w-full h-full flex flex-col items-center justify-center gap-4 border-2 border-dashed border-border">
           <FileText className="h-12 w-12 text-muted-foreground" />
@@ -146,12 +157,15 @@ const WritingCard = ({ src, title }: { src: string; title: string }) => {
 
 const WorkShowcase = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
+
+  let itemIndex = 0;
 
   return (
     <section id="work" className="section-padding bg-section-muted">
-      <div className="container-width">
+      <div className="container-width" ref={sectionRef}>
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           <p className="section-label">Portfolio</p>
           <h2 className="section-title">Work Showcase</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -160,7 +174,10 @@ const WorkShowcase = () => {
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div
+          className={`flex flex-wrap justify-center gap-3 mb-12 scroll-reveal-fade ${isVisible ? 'visible' : ''}`}
+          style={{ transitionDelay: '100ms' }}
+        >
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -182,30 +199,57 @@ const WorkShowcase = () => {
           {/* Video Editing */}
           {(activeCategory === 'all' || activeCategory === 'video') &&
             videoItems.map((item) => (
-              <VideoCard key={`video-${item.id}`} src={item.src} title={item.title} />
+              <VideoCard
+                key={`video-${item.id}`}
+                src={item.src}
+                title={item.title}
+                delay={200 + itemIndex++ * 60}
+                isVisible={isVisible}
+              />
             ))}
 
           {/* Graphic Design */}
           {(activeCategory === 'all' || activeCategory === 'design') &&
             designItems.map((item) => (
-              <ImageCard key={`design-${item.id}`} src={item.src} title={item.title} />
+              <ImageCard
+                key={`design-${item.id}`}
+                src={item.src}
+                title={item.title}
+                delay={200 + itemIndex++ * 60}
+                isVisible={isVisible}
+              />
             ))}
 
           {/* Writing */}
           {(activeCategory === 'all' || activeCategory === 'writing') &&
             writingItems.map((item) => (
-              <WritingCard key={`writing-${item.id}`} src={item.src} title={item.title} />
+              <WritingCard
+                key={`writing-${item.id}`}
+                src={item.src}
+                title={item.title}
+                delay={200 + itemIndex++ * 60}
+                isVisible={isVisible}
+              />
             ))}
 
           {/* On Camera */}
           {(activeCategory === 'all' || activeCategory === 'camera') &&
             cameraItems.map((item) => (
-              <VideoCard key={`camera-${item.id}`} src={item.src} title={item.title} />
+              <VideoCard
+                key={`camera-${item.id}`}
+                src={item.src}
+                title={item.title}
+                delay={200 + itemIndex++ * 60}
+                isVisible={isVisible}
+              />
             ))}
         </div>
 
         {/* Tagline */}
-        <p className="text-center text-muted-foreground mt-12 italic">
+        <p
+          className={`text-center text-muted-foreground mt-12 italic scroll-reveal-fade ${isVisible ? 'visible' : ''}`}
+          style={{ transitionDelay: '800ms' }}
+        >
           "Creative execution backed by strategy, not guesswork."
         </p>
       </div>
