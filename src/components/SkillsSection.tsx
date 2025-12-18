@@ -1,4 +1,5 @@
 import { Target, Share2, Pencil, Video, Palette, Mail } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const skills = [
   {
@@ -87,11 +88,13 @@ const softSkills = [
 ];
 
 const SkillsSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
+
   return (
     <section id="skills" className="section-padding bg-section-light">
-      <div className="container-width">
+      <div className="container-width" ref={sectionRef}>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           <p className="section-label">My Skills</p>
           <h2 className="section-title">What I Bring to the Table</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -104,8 +107,8 @@ const SkillsSection = () => {
           {skills.map((skill, index) => (
             <div
               key={skill.title}
-              className="card-elevated opacity-0 animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards' }}
+              className={`card-elevated scroll-reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${100 + index * 80}ms` }}
             >
               {/* Icon */}
               <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
@@ -137,7 +140,7 @@ const SkillsSection = () => {
         {/* Tools & Soft Skills */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* Tools */}
-          <div>
+          <div className={`scroll-reveal-fade ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '600ms' }}>
             <h3 className="text-xl font-bold text-foreground mb-4">Tools & Platforms</h3>
             <div className="flex flex-wrap gap-3">
               {tools.map((tool) => (
@@ -152,7 +155,7 @@ const SkillsSection = () => {
           </div>
 
           {/* Soft Skills */}
-          <div>
+          <div className={`scroll-reveal-fade ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '700ms' }}>
             <h3 className="text-xl font-bold text-foreground mb-4">Soft Skills</h3>
             <div className="grid grid-cols-2 gap-3">
               {softSkills.map((skill) => (

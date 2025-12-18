@@ -1,4 +1,5 @@
 import { Briefcase, Users, Calendar } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const experiences = [
   {
@@ -37,11 +38,13 @@ const experiences = [
 ];
 
 const ExperienceSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <section id="experience" className="section-padding">
-      <div className="container-width">
+      <div className="container-width" ref={sectionRef}>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           <p className="section-label">Experience</p>
           <h2 className="section-title">Professional Journey</h2>
         </div>
@@ -57,8 +60,8 @@ const ExperienceSection = () => {
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className="relative flex gap-6 opacity-0 animate-slide-up"
-                  style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'forwards' }}
+                  className={`relative flex gap-6 scroll-reveal ${isVisible ? 'visible' : ''}`}
+                  style={{ transitionDelay: `${150 + index * 120}ms` }}
                 >
                   {/* Icon */}
                   <div className="hidden md:flex w-16 h-16 rounded-2xl bg-accent/10 items-center justify-center flex-shrink-0 z-10">

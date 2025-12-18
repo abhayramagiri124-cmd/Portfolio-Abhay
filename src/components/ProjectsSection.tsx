@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const categories = ['All', 'Brand Campaigns', 'NGO & Social Impact', 'Education'];
 
@@ -42,6 +43,7 @@ const projects = [
 
 const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.05 });
 
   const filteredProjects =
     activeCategory === 'All'
@@ -50,15 +52,18 @@ const ProjectsSection = () => {
 
   return (
     <section className="section-padding bg-section-light">
-      <div className="container-width">
+      <div className="container-width" ref={sectionRef}>
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           <p className="section-label">Portfolio</p>
           <h2 className="section-title">Selected Works</h2>
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div
+          className={`flex flex-wrap justify-center gap-3 mb-12 scroll-reveal-fade ${isVisible ? 'visible' : ''}`}
+          style={{ transitionDelay: '100ms' }}
+        >
           {categories.map((cat) => (
             <button
               key={cat}
@@ -79,8 +84,8 @@ const ProjectsSection = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={project.title}
-              className="card-elevated opacity-0 animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards' }}
+              className={`card-elevated scroll-reveal ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: `${200 + index * 80}ms` }}
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-4">
