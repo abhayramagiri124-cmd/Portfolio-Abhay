@@ -1,19 +1,13 @@
 import { Film, BookOpen, GraduationCap } from 'lucide-react';
-
-const highlights = [
-  {
-    icon: Film,
-    text: 'Heart lies in ad filming and production',
-  },
-  {
-    icon: BookOpen,
-    text: 'Published author of "AROUND YOU" (2022)',
-  },
-];
-
+const highlights = [{
+  icon: Film,
+  text: 'Heart lies in ad filming and production'
+}, {
+  icon: BookOpen,
+  text: 'Published author of "AROUND YOU" (2022)'
+}];
 const AboutSection = () => {
-  return (
-    <section id="about" className="section-padding bg-section-muted">
+  return <section id="about" className="section-padding bg-section-muted">
       <div className="container-width">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -44,14 +38,12 @@ const AboutSection = () => {
 
             {/* Highlights */}
             <div className="space-y-4 pt-4">
-              {highlights.map((item, index) => (
-                <div key={index} className="flex items-center gap-4">
+              {highlights.map((item, index) => <div key={index} className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                     <item.icon className="h-6 w-6 text-accent" />
                   </div>
                   <p className="text-foreground font-medium">{item.text}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
@@ -78,16 +70,12 @@ const AboutSection = () => {
 
               {/* Quote */}
               <div className="mt-8 pt-6 border-t border-border">
-                <p className="text-muted-foreground italic text-center">
-                  "Even an hour of pen and paper can make my day."
-                </p>
+                <p className="text-muted-foreground italic text-center">"In today's world, relatability is the new reality"</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
