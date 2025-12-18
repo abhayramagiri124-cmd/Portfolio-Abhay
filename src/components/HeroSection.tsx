@@ -2,39 +2,27 @@ import { useState, useEffect } from 'react';
 import { FileText, Linkedin, ChevronDown, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profilePhoto from '@/assets/profile-photo.png';
-
-const quotes = [
-  "I prefer using AI as a tool, not a creator.",
-  "In today's world, relatability is the new reality.",
-  "Above all, I value the learner side of myself.",
-];
-
-const skillChips = [
-  'Content Strategy',
-  'Ad Scripting',
-  'Social Media',
-  'Video Editing',
-  'Graphic Design',
-];
-
-const stats = [
-  { number: '50+', label: 'Shoots Executed' },
-  { number: '10+', label: 'Pages Managed' },
-  { number: '40+', label: 'Videos Edited' },
-];
-
+const quotes = ["I prefer using AI as a tool, not a creator.", "In today's world, relatability is the new reality.", "Above all, I value the learner side of myself."];
+const skillChips = ['Content Strategy', 'Ad Scripting', 'Social Media', 'Video Editing', 'Graphic Design'];
+const stats = [{
+  number: '50+',
+  label: 'Shoots Executed'
+}, {
+  number: '10+',
+  label: 'Pages Managed'
+}, {
+  number: '40+',
+  label: 'Videos Edited'
+}];
 const HeroSection = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+      setCurrentQuote(prev => (prev + 1) % quotes.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
-
-  return (
-    <section id="home" className="min-h-screen flex items-center pt-20 pb-16 section-padding">
+  return <section id="home" className="min-h-screen flex items-center pt-20 pb-16 section-padding">
       <div className="container-width">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
@@ -64,15 +52,12 @@ const HeroSection = () => {
 
             {/* Skill Chips */}
             <div className="flex flex-wrap gap-3 mb-8">
-              {skillChips.map((skill, index) => (
-                <span
-                  key={skill}
-                  className="skill-chip opacity-0 animate-slide-up"
-                  style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'forwards' }}
-                >
+              {skillChips.map((skill, index) => <span key={skill} className="skill-chip opacity-0 animate-slide-up" style={{
+              animationDelay: `${0.3 + index * 0.1}s`,
+              animationFillMode: 'forwards'
+            }}>
                   {skill}
-                </span>
-              ))}
+                </span>)}
             </div>
 
             {/* CTA Buttons */}
@@ -99,16 +84,13 @@ const HeroSection = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className="opacity-0 animate-slide-up"
-                  style={{ animationDelay: `${0.6 + index * 0.1}s`, animationFillMode: 'forwards' }}
-                >
+              {stats.map((stat, index) => <div key={stat.label} className="opacity-0 animate-slide-up" style={{
+              animationDelay: `${0.6 + index * 0.1}s`,
+              animationFillMode: 'forwards'
+            }}>
                   <p className="stat-number">{stat.number}</p>
                   <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
@@ -120,11 +102,7 @@ const HeroSection = () => {
               
               {/* Profile Image */}
               <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">
-                <img
-                  src={profilePhoto}
-                  alt="Abhay Ramagiri - Digital Media Professional"
-                  className="w-full h-full object-cover"
-                />
+                <img alt="Abhay Ramagiri - Digital Media Professional" className="w-full h-full object-cover" src="/lovable-uploads/938ff01d-fb8d-4256-8da1-a5110303a003.jpg" />
               </div>
 
               {/* Floating Quote Card */}
@@ -144,8 +122,6 @@ const HeroSection = () => {
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
