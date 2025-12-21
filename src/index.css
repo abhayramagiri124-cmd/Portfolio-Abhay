@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================= RESET & BASE FIXES ================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -13,137 +15,82 @@
 html {
   scroll-behavior: smooth;
 }
-/* Prevent horizontal scroll on small devices */
-html, body {
+
+html,
+body {
   width: 100%;
   overflow-x: hidden;
 }
 
-/* Better text rendering */
 body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Safer images & videos */
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ================= THEME TOKENS ================= */
+
 @layer base {
   :root {
-    /* Sage/Mint Green Background - Trust & Growth */
     --background: 150 25% 82%;
     --foreground: 200 40% 15%;
 
-    /* Cards - Clean White */
     --card: 0 0% 100%;
     --card-foreground: 200 40% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 200 40% 15%;
-
-    /* Primary - Dark Teal - Professionalism */
     --primary: 195 55% 22%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Cream/Light */
     --secondary: 45 30% 96%;
     --secondary-foreground: 200 40% 15%;
 
-    /* Muted - Softer backgrounds */
     --muted: 150 15% 88%;
     --muted-foreground: 200 20% 40%;
 
-    /* Accent - Orange/Amber - Energy & Creativity */
     --accent: 35 85% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
     --border: 150 15% 75%;
-    --input: 150 15% 75%;
     --ring: 195 55% 22%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(150 25% 82%) 0%, hsl(150 20% 78%) 100%);
-    --card-shadow: 0 4px 24px -4px hsla(200, 40%, 15%, 0.08);
-    --card-hover-shadow: 0 8px 32px -8px hsla(200, 40%, 15%, 0.15);
-    --accent-glow: 0 0 30px hsla(35, 85%, 55%, 0.3);
-
-    /* Section backgrounds */
     --section-light: 45 25% 95%;
     --section-muted: 150 15% 85%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 200 40% 10%;
-    --foreground: 150 20% 95%;
-
-    --card: 200 35% 15%;
-    --card-foreground: 150 20% 95%;
-
-    --popover: 200 35% 15%;
-    --popover-foreground: 150 20% 95%;
-
-    --primary: 150 35% 70%;
-    --primary-foreground: 200 40% 10%;
-
-    --secondary: 200 30% 20%;
-    --secondary-foreground: 150 20% 95%;
-
-    --muted: 200 30% 18%;
-    --muted-foreground: 150 15% 65%;
-
-    --accent: 35 85% 55%;
-    --accent-foreground: 200 40% 10%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 200 30% 25%;
-    --input: 200 30% 25%;
-    --ring: 150 35% 70%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
+    --card-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.08);
+    --card-hover-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.15);
+    --accent-glow: 0 0 30px rgba(245, 158, 11, 0.35);
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Playfair Display', serif;
   }
 }
+
+/* ================= LAYOUT HELPERS ================= */
 
 @layer components {
   .section-padding {
@@ -152,19 +99,6 @@ img, video {
 
   .container-width {
     @apply max-w-7xl mx-auto;
-  }
-
-  .accent-text {
-    @apply text-accent;
-  }
-
-  .skill-chip {
-    @apply px-4 py-2 rounded-full border border-border bg-card text-foreground text-sm font-medium 
-           transition-all duration-300 hover:border-primary hover:shadow-md;
-  }
-
-  .stat-number {
-    @apply text-4xl md:text-5xl font-bold text-accent font-sans;
   }
 
   .section-label {
@@ -176,22 +110,43 @@ img, video {
   }
 
   .card-elevated {
-    @apply bg-card rounded-xl p-6 shadow-[var(--card-shadow)] 
-           transition-all duration-300 hover:shadow-[var(--card-hover-shadow)] hover:-translate-y-1;
+    @apply bg-card rounded-xl p-6 transition-all duration-300;
+    box-shadow: var(--card-shadow);
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  .card-elevated:hover {
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-4px);
+  }
+
+  .skill-chip {
+    @apply px-4 py-2 rounded-full border border-border bg-card text-sm font-medium transition-all duration-300;
+  }
+
+  .skill-chip:hover {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .stat-number {
+    @apply text-4xl md:text-5xl font-bold text-white;
   }
 }
 
+/* ================= SCROLL OFFSET (FIXED) ================= */
+
+/* Apply ONLY to sections navigated via header */
+.scroll-offset {
+  scroll-margin-top: 96px;
+}
+
+/* ================= SCROLL REVEAL ANIMATIONS ================= */
+
 @layer utilities {
-  /* Scroll-reveal animations */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
-                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
   .scroll-reveal.visible {
@@ -201,14 +156,13 @@ img, video {
 
   .scroll-reveal-fade {
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.6s ease;
   }
 
   .scroll-reveal-fade.visible {
     opacity: 1;
   }
 
-  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .scroll-reveal,
     .scroll-reveal-fade {
@@ -217,108 +171,40 @@ img, video {
       transition: none;
     }
   }
-
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slideUp {
-    from { 
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to { 
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideInRight {
-    from { 
-      opacity: 0;
-      transform: translateX(20px);
-    }
-    to { 
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .stagger-1 { animation-delay: 0.08s; }
-  .stagger-2 { animation-delay: 0.16s; }
-  .stagger-3 { animation-delay: 0.24s; }
-  .stagger-4 { animation-delay: 0.32s; }
-  .stagger-5 { animation-delay: 0.4s; }
-  .stagger-6 { animation-delay: 0.48s; }
 }
 
-/* -------- Scroll Reveal Animation -------- */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 /* ================= HERO PREMIUM BACKGROUND ================= */
 
 .hero-bg {
+  position: relative;
   background:
     radial-gradient(1200px 600px at 10% 20%, rgba(46, 125, 125, 0.35), transparent 60%),
     radial-gradient(1000px 600px at 80% 30%, rgba(155, 140, 220, 0.35), transparent 60%),
     radial-gradient(900px 500px at 50% 80%, rgba(245, 195, 120, 0.35), transparent 60%),
     linear-gradient(180deg, #d8ebe2 0%, #e7f2ed 100%);
-  position: relative;
 }
 
-/* Soft geometric diagonal grid */
 .hero-bg::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(135deg, rgba(0,0,0,0.04) 1px, transparent 1px),
-    linear-gradient(45deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    linear-gradient(135deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 120px 120px;
   opacity: 0.15;
   pointer-events: none;
 }
 
-/* Organic wave overlay */
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(60% 40% at 70% 50%, rgba(0, 90, 90, 0.35), transparent 70%);
+  background: radial-gradient(
+    60% 40% at 70% 50%,
+    rgba(0, 90, 90, 0.35),
+    transparent 70%
+  );
   opacity: 0.35;
   pointer-events: none;
-}
-.scroll-offset {
-  scroll-margin-top: 96px;
-}
-
-/* Better scrolling on iOS */
-body {
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Prevent accidental text selection */
-button, a {
-  -webkit-tap-highlight-color: transparent;
 }
