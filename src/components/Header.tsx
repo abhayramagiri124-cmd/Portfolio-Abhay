@@ -17,17 +17,22 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+     if (isMobileMenuOpen) {
+       document.body.style.overflow = 'hidden';
+     }  
+     else {
+       document.body.style.overflow = '';
+     }
+
+     return () => {
+      document.body.style.overflow = '';
+     };
+  }, [isMobileMenuOpen]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? 'bg-card/95 backdrop-blur-md shadow-card py-3'
           : 'bg-transparent py-5'
       }`}
