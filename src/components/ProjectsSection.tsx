@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
+
 const categories = ['All', 'Brand Campaigns', 'NGO & Social Impact', 'Education'];
 
 const projects = [
@@ -51,7 +52,7 @@ const ProjectsSection = () => {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="section-padding bg-section-light">
+    <section id="projects" className="section-padding bg-section-light scroll-mt-24">
       <div className="container-width" ref={sectionRef}>
         {/* Section Header */}
         <div className={`text-center mb-12 scroll-reveal ${isVisible ? 'visible' : ''}`}>
@@ -80,7 +81,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
             <div
               key={project.title}

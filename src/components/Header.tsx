@@ -6,8 +6,9 @@ const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Work', href: '#work' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Work', href: '#projects' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -37,16 +38,28 @@ const Header = () => {
           Abhay<span className="text-accent">.</span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+         {/* Desktop Navigation */}
+         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200"
+              className="
+               relative px-3 py-1.5
+               text-sm font-medium text-foreground/80
+               transition-colors duration-300
+               hover:text-foreground
+               group
+             "
             >
-              {item.label}
-            </a>
+         {item.label}
+
+           {/* Animated Border */}
+            <span
+             className="absolute inset-0 rounded-md border border-accent opacity-0 scale-95 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100"
+           />
+        </a>
+
           ))}
         </nav>
 
@@ -57,12 +70,13 @@ const Header = () => {
               <Linkedin className="h-5 w-5" />
             </a>
           </Button>
-          <Button variant="hero" size="default" asChild>
-            <a href="#resume">
+          <Button variant="hero" size="default" className="shadow-accent-glow hover:scale-[1.02] transition" asChild>
+            <a href="/resume/Abhay_Ramagiri_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <FileText className="h-4 w-4" />
               Resume
             </a>
           </Button>
+
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -82,7 +96,7 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="px-4 py-3 text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="relative text-sm font-medium text-foreground/80 transition-colors duration-300 hover:text-foreground group"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}

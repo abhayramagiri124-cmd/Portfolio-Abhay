@@ -12,7 +12,7 @@ const BeyondWork = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section className="section-padding" ref={sectionRef}>
+    <section  ref={sectionRef} className="section-padding bg-section-light">
       <div className="container-width">
         {/* Section Header */}
         <div className={`text-center mb-12 scroll-reveal ${isVisible ? 'visible' : ''}`}>

@@ -10,7 +10,7 @@ const AboutSection = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section id="about" className="section-padding bg-section-muted">
+    <section  id="about"   className="section-padding bg-gradient-to-b from-section-muted to-background">
       <div className="container-width" ref={sectionRef}>
         {/* Section Header */}
         <div className={`text-center mb-12 scroll-reveal ${isVisible ? 'visible' : ''}`}>
@@ -19,8 +19,8 @@ const AboutSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12 items-start">
-          {/* Left - About Text */}
-          <div className="lg:col-span-3 space-y-6">
+          {/* Left - About Text */}    
+          <div className="lg:col-span-3 space-y-6">    
             <p
               className={`text-lg text-foreground leading-relaxed scroll-reveal ${isVisible ? 'visible' : ''}`}
               style={{ transitionDelay: '100ms' }}

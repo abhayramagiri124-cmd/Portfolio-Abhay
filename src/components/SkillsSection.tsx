@@ -5,7 +5,7 @@ const skills = [
   {
     icon: Target,
     title: 'Content Strategy & Digital Marketing',
-    level: 'Advanced',
+    level: 'Intermediate',
     description: 'Strategizing and executing content ecosystems aligned with brand and audience goals.',
     points: [
       'Campaign planning & execution',
@@ -41,7 +41,7 @@ const skills = [
   {
     icon: Video,
     title: 'Video Editing',
-    level: 'Advanced',
+    level: 'Intermediate',
     description: 'Editing videos with strong narrative flow and platform-first thinking.',
     points: [
       'Reels, shorts & long-form edits',
