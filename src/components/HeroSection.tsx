@@ -36,26 +36,26 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden"
+      className="relative min-h-screen pt-28 pb-20 overflow-hidden"
       style={{
         backgroundImage: "url('/hero/hero-bg.webp')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Overlay for readability */}
+      {/* subtle dark overlay for readability */}
       <div className="absolute inset-0 bg-black/10 md:bg-black/0 pointer-events-none" />
 
-      <div className="relative container-width pt-24 pb-16 md:pt-32 md:pb-24">
-        {/* MOBILE: column | DESKTOP: grid */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative container-width">
+        {/* MAIN LAYOUT */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* ✅ IMAGE FIRST (MOBILE + DESKTOP) */}
-          <div className="flex justify-center lg:justify-end">
+          {/* IMAGE — TOP on mobile, LEFT on desktop */}
+          <div className="w-full flex justify-center lg:justify-start">
             <div className="relative">
               <div className="absolute inset-0 rounded-full border-2 border-accent/40 scale-105" />
-
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">
+              <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">
                 <img
                   src="/lovable-uploads/93e074cd-60d1-4bcc-89ce-bad637329d15.jpg"
                   alt="Abhay Ramagiri"
@@ -63,20 +63,20 @@ const HeroSection = () => {
                 />
               </div>
 
-              {/* Quote */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-right-8 bg-card rounded-2xl shadow-card p-4 max-w-[260px] border border-border">
-                <p className="text-sm text-muted-foreground italic text-center">
+              {/* Quote bubble */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:-right-8 lg:translate-x-0 bg-card rounded-2xl shadow-card p-4 max-w-[260px] border border-border">
+                <p className="text-sm text-muted-foreground italic text-center lg:text-left">
                   "{quotes[currentQuote]}"
                 </p>
               </div>
             </div>
           </div>
 
-          {/* ✅ TEXT SECOND (ALIGNS RIGHT ON DESKTOP) */}
-          <div className="text-center lg:text-left">
-            {/* Availability */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-              border border-white/40 bg-white/20 backdrop-blur mb-6">
+          {/* TEXT — BELOW on mobile, RIGHT on desktop */}
+          <div className="w-full text-center lg:text-left">
+
+            {/* Availability badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/40 bg-white/20 backdrop-blur mb-6">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-sm font-medium text-white">
                 Available for new opportunities
@@ -84,32 +84,33 @@ const HeroSection = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
               Hi, I&apos;m Abhay
               <br />
               Ramagiri
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg text-white/90 font-medium mb-4">
+            <p className="text-lg md:text-xl text-white/90 font-medium mb-4">
               Creator · Digital Media & Marketing Enthusiast · Storyteller
             </p>
 
             {/* Description */}
-            <p className="text-white/80 text-lg mb-6 max-w-xl mx-auto lg:mx-0">
-              I craft stories, scripts, and campaigns that turn brands into experiences.
+            <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
+              I craft stories, scripts, and campaigns that turn brands into
+              experiences.
             </p>
 
             {/* Skills */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
               {skillChips.map((skill) => (
-                <span key={skill} className="skill-chip bg-white/90">
+                <span key={skill} className="skill-chip bg-white/90 text-foreground">
                   {skill}
                 </span>
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA Buttons */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
               <Button variant="heroOutline" size="lg" asChild>
                 <a
@@ -122,8 +123,9 @@ const HeroSection = () => {
                 </a>
               </Button>
 
+              {/* View My Work → PROJECTS */}
               <a href="#projects" className="relative group">
-                <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg opacity-70 group-hover:opacity-100 transition" />
+                <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg opacity-60 group-hover:opacity-90 transition duration-500" />
                 <Button variant="heroOutline" size="lg" className="relative">
                   <Eye className="h-5 w-5" />
                   View My Work
@@ -132,7 +134,7 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-6">
               {stats.map((stat) => (
                 <div key={stat.label}>
                   <p className="text-3xl font-bold text-white">
@@ -144,10 +146,11 @@ const HeroSection = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll Indicator */}
         <div className="hidden md:flex justify-center mt-20 animate-bounce">
           <a href="#about" className="text-white/70 hover:text-white">
             <ChevronDown className="h-8 w-8" />
