@@ -8,7 +8,6 @@ import ProjectsSection from '@/components/ProjectsSection';
 import BeyondWork from '@/components/BeyondWork';
 import ContactSection from '@/components/ContactSection';
 import StrategyToExecutionBridge from '@/components/StrategyToExecutionBridge';
-import ste from '@/components/ste';
 
 
 const Index = () => {

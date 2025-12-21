@@ -36,7 +36,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-20 pb-16 section-padding overflow-hidden"
+      className="relative min-h-screen flex items-center pb-16 section-padding overflow-hidden"
       style={{
         backgroundImage: "url('/hero/hero-bg.webp')",
         backgroundSize: 'cover',
