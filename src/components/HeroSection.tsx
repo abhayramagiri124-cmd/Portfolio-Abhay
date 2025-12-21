@@ -44,36 +44,15 @@ const HeroSection = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* subtle dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/10 md:bg-black/0 pointer-events-none" />
+      {/* readability overlay */}
+      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
       <div className="relative container-width">
-        {/* MAIN LAYOUT */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        {/* GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* IMAGE — TOP on mobile, LEFT on desktop */}
-          <div className="w-full flex justify-center lg:justify-start">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full border-2 border-accent/40 scale-105" />
-              <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">
-                <img
-                  src="/lovable-uploads/93e074cd-60d1-4bcc-89ce-bad637329d15.jpg"
-                  alt="Abhay Ramagiri"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Quote bubble */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:-right-8 lg:translate-x-0 bg-card rounded-2xl shadow-card p-4 max-w-[260px] border border-border">
-                <p className="text-sm text-muted-foreground italic text-center lg:text-left">
-                  "{quotes[currentQuote]}"
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* TEXT — BELOW on mobile, RIGHT on desktop */}
-          <div className="w-full text-center lg:text-left">
+          {/* TEXT — LEFT ON DESKTOP */}
+          <div className="order-2 lg:order-1 text-center lg:text-left">
 
             {/* Availability badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/40 bg-white/20 backdrop-blur mb-6">
@@ -104,13 +83,16 @@ const HeroSection = () => {
             {/* Skills */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
               {skillChips.map((skill) => (
-                <span key={skill} className="skill-chip bg-white/90 text-foreground">
+                <span
+                  key={skill}
+                  className="px-4 py-2 rounded-full bg-white/90 text-foreground text-sm font-medium"
+                >
                   {skill}
                 </span>
               ))}
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
               <Button variant="heroOutline" size="lg" asChild>
                 <a
@@ -123,7 +105,6 @@ const HeroSection = () => {
                 </a>
               </Button>
 
-              {/* View My Work → PROJECTS */}
               <a href="#projects" className="relative group">
                 <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg opacity-60 group-hover:opacity-90 transition duration-500" />
                 <Button variant="heroOutline" size="lg" className="relative">
@@ -146,11 +127,33 @@ const HeroSection = () => {
                 </div>
               ))}
             </div>
-
           </div>
+
+          {/* IMAGE — RIGHT ON DESKTOP, TOP ON MOBILE */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full border-2 border-accent/40 scale-105" />
+
+              <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">
+                <img
+                  src="/lovable-uploads/93e074cd-60d1-4bcc-89ce-bad637329d15.jpg"
+                  alt="Abhay Ramagiri"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Quote */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:-right-8 lg:translate-x-0 bg-card rounded-2xl shadow-card p-4 max-w-[260px] border border-border">
+                <p className="text-sm text-muted-foreground italic text-center lg:text-left">
+                  "{quotes[currentQuote]}"
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll indicator */}
         <div className="hidden md:flex justify-center mt-20 animate-bounce">
           <a href="#about" className="text-white/70 hover:text-white">
             <ChevronDown className="h-8 w-8" />
