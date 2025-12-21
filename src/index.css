@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   margin: 0;
   padding: 0;
@@ -310,9 +309,10 @@ img, video {
   opacity: 0.35;
   pointer-events: none;
 }
-section {
+.scroll-offset {
   scroll-margin-top: 96px;
 }
+
 /* Better scrolling on iOS */
 body {
   -webkit-overflow-scrolling: touch;
