@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { Linkedin, ChevronDown, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const HEADER_HEIGHT = '96px'; // matches header height
-
 const quotes = [
   'I prefer using AI as a tool, not a creator.',
   "In today's world, relatability is the new reality.",
@@ -38,88 +36,26 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden hero-bg"
+      className="relative overflow-hidden"
       style={{
-        paddingTop: HEADER_HEIGHT, // ✅ THIS FIXES THE GAP
         backgroundImage: "url('/hero/hero-bg.webp')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* overlay */}
-      <div className="absolute inset-0 bg-black/10 md:bg-black/5 pointer-events-none" />
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black/10 md:bg-black/0 pointer-events-none" />
 
-      <div className="relative z-10 container-width py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative container-width pt-24 pb-16 md:pt-32 md:pb-24">
+        {/* MOBILE: column | DESKTOP: grid */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* LEFT */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-              border border-emerald-300/40 bg-emerald-200/20 backdrop-blur-md mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-sm font-medium text-emerald-900">
-                Available for new opportunities
-              </span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">
-              Hi, I&apos;m <span className="text-primary">Abhay</span><br />
-              <span className="text-primary">Ramagiri</span>
-            </h1>
-
-            <p className="text-lg md:text-xl font-medium mb-4">
-              Creator · Digital Media & Marketing Enthusiast · Storyteller
-            </p>
-
-            <p className="text-muted-foreground text-lg mb-6 max-w-xl">
-              I craft stories, scripts, and campaigns that turn brands into experiences.
-            </p>
-
-            <div className="flex flex-wrap gap-3 mb-8">
-              {skillChips.map((skill) => (
-                <span key={skill} className="skill-chip">
-                  {skill}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex gap-4 mb-12">
-              <Button variant="heroOutline" size="lg" asChild>
-                <a href="https://linkedin.com/in/abhay-ramagiri" target="_blank">
-                  <Linkedin className="h-5 w-5" />
-                  LinkedIn
-                </a>
-              </Button>
-
-              <a href="#projects" className="relative group">
-                <span className="absolute inset-0 rounded-xl bg-primary/40 blur-xl opacity-60 group-hover:opacity-90 transition" />
-                <Button variant="heroOutline" size="lg" className="relative">
-                  <Eye className="h-5 w-5" />
-                  View My Work
-                </Button>
-              </a>
-            </div>
-
-            <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-3xl font-bold text-white">
-                    {stat.number}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT */}
+          {/* ✅ IMAGE FIRST (MOBILE + DESKTOP) */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="absolute inset-0 rounded-full border-2 border-accent/40 scale-105" />
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">
+
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">
                 <img
                   src="/lovable-uploads/93e074cd-60d1-4bcc-89ce-bad637329d15.jpg"
                   alt="Abhay Ramagiri"
@@ -127,18 +63,94 @@ const HeroSection = () => {
                 />
               </div>
 
-              <div className="absolute -bottom-6 -right-6 bg-card rounded-2xl shadow-card p-4 max-w-[260px] border">
-                <p className="text-sm italic text-muted-foreground">
+              {/* Quote */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-right-8 bg-card rounded-2xl shadow-card p-4 max-w-[260px] border border-border">
+                <p className="text-sm text-muted-foreground italic text-center">
                   "{quotes[currentQuote]}"
                 </p>
               </div>
             </div>
           </div>
+
+          {/* ✅ TEXT SECOND (ALIGNS RIGHT ON DESKTOP) */}
+          <div className="text-center lg:text-left">
+            {/* Availability */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full
+              border border-white/40 bg-white/20 backdrop-blur mb-6">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-sm font-medium text-white">
+                Available for new opportunities
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
+              Hi, I&apos;m Abhay
+              <br />
+              Ramagiri
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg text-white/90 font-medium mb-4">
+              Creator · Digital Media & Marketing Enthusiast · Storyteller
+            </p>
+
+            {/* Description */}
+            <p className="text-white/80 text-lg mb-6 max-w-xl mx-auto lg:mx-0">
+              I craft stories, scripts, and campaigns that turn brands into experiences.
+            </p>
+
+            {/* Skills */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+              {skillChips.map((skill) => (
+                <span key={skill} className="skill-chip bg-white/90">
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
+              <Button variant="heroOutline" size="lg" asChild>
+                <a
+                  href="https://linkedin.com/in/abhay-ramagiri"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="h-5 w-5" />
+                  LinkedIn
+                </a>
+              </Button>
+
+              <a href="#projects" className="relative group">
+                <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg opacity-70 group-hover:opacity-100 transition" />
+                <Button variant="heroOutline" size="lg" className="relative">
+                  <Eye className="h-5 w-5" />
+                  View My Work
+                </Button>
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-3xl font-bold text-white">
+                    {stat.number}
+                  </p>
+                  <p className="text-sm text-white/70">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="hidden md:flex justify-center mt-16 animate-bounce">
-          <a href="#about">
-            <ChevronDown className="h-8 w-8 text-muted-foreground" />
+        {/* Scroll indicator */}
+        <div className="hidden md:flex justify-center mt-20 animate-bounce">
+          <a href="#about" className="text-white/70 hover:text-white">
+            <ChevronDown className="h-8 w-8" />
           </a>
         </div>
       </div>
