@@ -7,7 +7,7 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Work', href: '#work' },
+  { label: 'Work', href: '#projects' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -53,7 +53,7 @@ const Header = () => {
         </a>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4">
            {navItems.map((item) => (
              <div key={item.label} className="relative group">
                <a
