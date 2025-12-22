@@ -5,6 +5,9 @@ import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import WorkShowcase from '@/components/WorkShowcase';
 import ContactSection from '@/components/ContactSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import StrategyToExecutionBridge from '@/components/StrategyToExecutionBridge';
+
 
 const Index = () => {
   return (
@@ -16,7 +19,9 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <ExperienceSection />
         <ProjectsSection />
+        <StrategyToExecutionBridge />
         <WorkShowcase />
         <ContactSection />
       </main>
