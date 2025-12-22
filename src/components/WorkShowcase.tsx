@@ -211,7 +211,7 @@ const WorkShowcase = () => {
         </div>
 
         {/* Filters */}
-        <div className="flex justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-10 px-4 sm:px-0">
           {categories.map((c) => (
             <button
               key={c.id}
