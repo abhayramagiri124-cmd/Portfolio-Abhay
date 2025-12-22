@@ -36,7 +36,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-28 pb-20 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 overflow-hidden scroll-mt-24"
       style={{
         backgroundImage: "url('/hero/hero-bg.webp')",
         backgroundSize: 'cover',
@@ -47,7 +47,7 @@ const HeroSection = () => {
       {/* readability overlay */}
       <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
-      <div className="relative container-width">
+      <div className="relative container-width mx-auto max-w-[1400px]">
         {/* GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 

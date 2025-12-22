@@ -42,7 +42,7 @@ const ContactSection = () => {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com/_.abhay._0609"
+            href="https://instagram.com/_.abhay._0906"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-4 bg-primary-foreground/10 rounded-xl hover:bg-primary-foreground/20 transition-colors group"
