@@ -131,7 +131,7 @@ const HeroSection = () => {
 
           {/* IMAGE — RIGHT ON DESKTOP, TOP ON MOBILE */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
+            <div className="relative lg:-mt-20 xl:-mt-28">
               <div className="absolute inset-0 rounded-full border-2 border-accent/40 scale-105" />
 
               <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-card shadow-2xl">

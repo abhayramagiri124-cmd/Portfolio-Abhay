@@ -53,18 +53,17 @@ const Header = () => {
         </a>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="
-                relative px-3 py-1.5
-                text-sm font-medium text-foreground/80
-                transition-colors duration-300
-                hover:text-foreground
-                group
-              "
+              className= {`text-sm font-medium transition-colors duration-300
+               ${isScrolled
+                ? 'text-foreground/80 hover:text-primary'
+                : 'text-white/90 hover:text-white'}
+             `}
+            
             >
               {item.label}
 
