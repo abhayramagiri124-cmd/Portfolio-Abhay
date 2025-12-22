@@ -7,7 +7,7 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Work', href: '#projects' },
+  { label: 'Work', href: '#work' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -54,33 +54,35 @@ const Header = () => {
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className= {`text-sm font-medium transition-colors duration-300
-               ${isScrolled
-                ? 'text-foreground/80 hover:text-primary'
-                : 'text-white/90 hover:text-white'}
-             `}
-            
-            >
-              {item.label}
+           {navItems.map((item) => (
+             <div key={item.label} className="relative group">
+               <a
+                 href={item.href}
+                  className={`relative px-3 py-1 text-sm font-medium transition-colors duration-300
+                    ${isScrolled
+                    ? 'text-foreground/80 hover:text-primary'
+                    : 'text-white/90 hover:text-white'}
+                 `}
+               >
+                  {item.label}
 
-              {/* Animated border */}
-              <span
-                className="
-                  absolute inset-0 rounded-md
-                  border border-accent
-                  opacity-0 scale-95
-                  transition-all duration-300 ease-out
-                  group-hover:opacity-100
-                  group-hover:scale-100
-                "
-              />
-            </a>
-          ))}
-        </nav>
+                  {/* Hover border — SAFE */}
+                  <span
+                    className="
+                     pointer-events-none
+                     absolute inset-0 rounded-md
+                     border border-accent
+                     opacity-0 scale-95
+                     transition-all duration-300 ease-out
+                     group-hover:opacity-100
+                     group-hover:scale-100
+                     "
+                  />
+               </a>
+          </div>
+         ))}
+       </nav>
+
 
         {/* DESKTOP CTA */}
         <div className="hidden md:flex items-center gap-3">

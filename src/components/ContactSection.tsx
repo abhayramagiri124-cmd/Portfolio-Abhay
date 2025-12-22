@@ -48,7 +48,7 @@ const ContactSection = () => {
             className="flex items-center gap-3 px-6 py-4 bg-primary-foreground/10 rounded-xl hover:bg-primary-foreground/20 transition-colors group"
           >
             <Instagram className="h-6 w-6 text-accent" />
-            <span className="font-medium">@_.abhay._0609</span>
+            <span className="font-medium">@_.abhay._0906</span>
           </a>
         </div>
 
