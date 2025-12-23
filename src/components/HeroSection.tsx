@@ -18,8 +18,8 @@ const skillChips = [
 
 const stats = [
   { number: '50+', label: 'Shoots Executed' },
-  { number: '10+', label: 'Pages Managed' },
-  { number: '40+', label: 'Videos Edited' },
+  { number: '10+', label: 'Accounts Managed' },
+  { number: '40+', label: 'Videos Crafted' },
 ];
 
 const HeroSection = () => {
