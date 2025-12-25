@@ -35,9 +35,9 @@ const AboutSection = () => {
               className={`text-lg text-foreground leading-relaxed scroll-reveal ${isVisible ? 'visible' : ''}`}
               style={{ transitionDelay: '180ms' }}
             >
-              I bring together <span className="text-accent font-semibold">creative thinking</span> and{' '}
-              <span className="text-accent font-semibold">strategic execution</span> to deliver
-              meaningful, data-backed results.
+              My approach begins with understanding the problem - 
+              <span className="text-accent font-semibold">audience behavior, brand gaps, and platform dynamics</span> and{' '} before choosing formats or tools. I focus on building content that aligns creativity with
+              <strong> strategy, ensuring consistency, clarity, and measurable impact.</strong>
             </p>
 
             <p

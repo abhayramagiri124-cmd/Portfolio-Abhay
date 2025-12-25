@@ -9,7 +9,7 @@ const experiences = [
     icon: Briefcase,
     bullets: [
       'Managed content strategy for multiple brand accounts',
-      'Executed social media campaigns with measurable results',
+      'Planned and executed content calendars, coordinated shoots, and ensured brand consistency across platforms with measurable results',
       'Coordinated with creative teams for content production',
     ],
   },
@@ -20,8 +20,9 @@ const experiences = [
     icon: Users,
     bullets: [
       'Led a 4-member marketing team',
+      'Managed marketing outreach and digital visibility for South Indian\'s largest CSR summit.',
+      'Designed and executed promotional strategy and email marketing campaigns to support event reach and engagement',
       '700+ NGO outreach, 150+ managed on event day',
-      'Designed and executed email marketing campaigns',
     ],
   },
   {
@@ -32,6 +33,7 @@ const experiences = [
     bullets: [
       'Led 10-member creative team promoting sustainability',
       'Created content for national-level events',
+      'Contributed to branding, documentation, and digital storytelling initiatives.',
       'Managed social media presence and engagement',
     ],
   },

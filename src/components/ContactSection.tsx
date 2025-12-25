@@ -12,10 +12,10 @@ const ContactSection = () => {
       >
         {/* Headline */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
-          Let's Connect
+          Let’s Talk Strategy
         </h2>
         <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-12">
-          If you're building something meaningful and fast-moving, let's connect.
+          If you’re looking for a content strategist who thinks beyond formats and focuses on impact, let’s connect
         </p>
 
         {/* Contact Links */}

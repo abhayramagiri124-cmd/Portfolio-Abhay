@@ -4,8 +4,8 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 const skills = [
   {
     icon: Target,
-    title: 'Content Strategy & Digital Marketing',
-    level: 'Intermediate',
+    title: 'Content Strategy in Digital Media',
+    level: 'Advanced',
     description: 'Strategizing and executing content ecosystems aligned with brand and audience goals.',
     points: [
       'Campaign planning & execution',
@@ -30,19 +30,18 @@ const skills = [
     icon: Pencil,
     title: 'Ad Scripting & Content Writing',
     level: 'Advanced',
-    description: 'Writing scripts and copy that connect emotionally and perform commercially.',
+    description: 'Writing conversion-focused scripts, captions, and brand narratives rooted in audience psychology and storytelling',
     points: [
       'Promotional ad scripting',
       'Multilingual writing (English, Telugu, Hindi)',
-      'Brand storytelling',
-      'Digital & film ad scripts',
+      'Brand storytelling and positioning',
     ],
   },
   {
     icon: Video,
     title: 'Video Editing',
     level: 'Intermediate',
-    description: 'Editing videos with strong narrative flow and platform-first thinking.',
+    description: 'Conceptualizing and structuring short & long-form videos optimized for attention, retention, and platform algorithms',
     points: [
       'Reels, shorts & long-form edits',
       'Promotional & campaign videos',
@@ -76,7 +75,7 @@ const skills = [
   },
 ];
 
-const tools = ['Canva', 'Adobe Photoshop', 'Figma', 'Meta Business Suite', 'HubSpot'];
+const tools = ['Canva', 'Adobe Photoshop', 'Figma', 'Meta Ads Manager', 'CapCut' , 'HubSpot', 'Notion', 'Google AI Studios', 'Google Analytics'];
 
 const softSkills = [
   'Team Management',

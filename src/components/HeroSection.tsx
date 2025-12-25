@@ -18,7 +18,7 @@ const skillChips = [
 
 const stats = [
   { number: '50+', label: 'Shoots Executed' },
-  { number: '10+', label: 'Accounts Managed' },
+  { number: '10+', label: 'Brand Accounts Managed' },
   { number: '40+', label: 'Videos Crafted' },
 ];
 
@@ -71,7 +71,7 @@ const HeroSection = () => {
 
             {/* Subtitle */}
             <p className="text-lg md:text-xl text-white/90 font-medium mb-4">
-              Creator · Digital Media & Marketing Enthusiast · Storyteller
+              Content Strategist in digital media helping brands turn attention into measurable growth
             </p>
 
             {/* Description */}
@@ -109,7 +109,7 @@ const HeroSection = () => {
                 <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg opacity-60 group-hover:opacity-90 transition duration-500" />
                 <Button variant="heroOutline" size="lg" className="relative">
                   <Eye className="h-5 w-5" />
-                  View My Work
+                  See Strategy in Action
                 </Button>
               </a>
             </div>
