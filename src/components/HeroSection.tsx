@@ -76,8 +76,7 @@ const HeroSection = () => {
 
             {/* Description */}
             <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
-              I craft stories, scripts, and campaigns that turn brands into
-              experiences.
+              I design stories, scripts, and campaigns that align creativity with business outcomes.
             </p>
 
             {/* Skills */}
