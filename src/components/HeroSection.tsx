@@ -10,8 +10,8 @@ const quotes = [
 
 const skillChips = [
   'Content Strategy',
+  'Social Media Management',
   'Ad Scripting',
-  'Social Media',
   'Video Editing',
   'Graphic Design',
 ];
