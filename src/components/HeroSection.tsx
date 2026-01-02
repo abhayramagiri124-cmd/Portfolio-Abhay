@@ -71,7 +71,7 @@ const HeroSection = () => {
 
             {/* Subtitle */}
             <p className="text-lg md:text-xl text-white/90 font-medium mb-4">
-              Content Strategist in digital media helping brands turn attention into measurable growth
+              Social Media Manager and Content Strategist in digital media helping brands turn attention into measurable growth
             </p>
 
             {/* Description */}
