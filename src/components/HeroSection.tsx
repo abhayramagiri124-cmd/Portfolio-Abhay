@@ -70,8 +70,8 @@ const HeroSection = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg md:text-xl text-white/90 font-medium mb-4">
-              Social Media Manager and Content Strategist in digital media helping brands turn attention into measurable growth
+            <p className="text-lg md:text-xl text-white/70 font-medium mb-4">
+              Social Media Manager and Content Strategist helping brands turn attention into measurable growth.
             </p>
 
             {/* Description */}
