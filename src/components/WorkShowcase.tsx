@@ -52,7 +52,7 @@ const writingItems = [
     id: 3,
     src: '/writings/doc-3.pdf',
     title: 'Reel Script: Relatability is your superpower',
-    excerpt: 'Unvieling the power of relatability in content creation'
+    excerpt: 'Unveiling the power of relatability in content creation',
   },
 ];
 
@@ -73,23 +73,7 @@ const getFileType = (src: string) => {
 };
 
 /* ------------------ Video Card ------------------ */
-interface VideoCardProps {
-  src: string;
-  title: string;
-  ratio: 'landscape' | 'portrait';
-  delay: number;
-  isVisible: boolean;
-  onClick: () => void;
-}
-
-const VideoCard = ({
-  src,
-  title,
-  ratio,
-  delay,
-  isVisible,
-  onClick,
-}: VideoCardProps) => {
+const VideoCard = ({ src, title, ratio, delay, isVisible, onClick }: any) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -120,7 +104,9 @@ const VideoCard = ({
       style={{ transitionDelay: `${delay}ms` }}
       className={`overflow-hidden cursor-pointer scroll-reveal
         ${isVisible ? 'visible' : ''}
-        ${ratio === 'portrait' ? 'aspect-[9/16] max-h-[420px] sm:max-h-[520px]  mx-auto' : 'aspect-video'}
+        ${ratio === 'portrait'
+          ? 'aspect-[9/16] max-h-[420px] sm:max-h-[520px] mx-auto'
+          : 'aspect-video'}
         rounded-xl border border-border/20`}
     >
       <div className="relative w-full h-full">
@@ -141,54 +127,6 @@ const VideoCard = ({
     </div>
   );
 };
-
-/* ------------------ Image Card ------------------ */
-const ImageCard = ({ src, title, delay, isVisible, onClick }: any) => (
-  <div
-    onClick={onClick}
-    style={{ transitionDelay: `${delay}ms` }}
-    className={`mb-6 break-inside-avoid overflow-hidden rounded-xl border border-border/20 hover:-translate-y-3 scroll-reveal ${
-      isVisible ? 'visible' : ''
-    } cursor-pointer`}
-  >
-    <div className="relative w-full">
-      <div className="absolute top-0 left-0 right-0 z-10 p-3 bg-gradient-to-b from-black/60 via-black/20 to-transparent">
-        <p className="text-white text-sm font-medium">{title}</p>
-      </div>
-      <img src={src} alt={title} loading="lazy" className="w-full h-auto object-contain" />
-    </div>
-  </div>
-);
-
-/* ------------------ Writing Card ------------------ */
-const WritingCard = ({ src, title, excerpt }: any) => (
-  <div
-    onClick={() => window.open(src, '_blank')}
-    className="
-      p-6 rounded-2xl cursor-pointer
-      bg-card
-      border border-border/30
-      shadow-[0_8px_24px_rgba(0,0,0,0.06)]
-      hover:-translate-y-5
-      transition-all duration-300
-    "
-  >
-    <h3 className="text-xl font-serif font-semibold mb-3 text-foreground">
-      {title}
-    </h3>
-
-    <p className="text-muted-foreground text-sm mb-6 line-clamp-3">
-
-      {excerpt}
-    </p>
-
-    <span className="text-accent inline-flex items-center gap-2 text-sm font-medium">
-      Read
-      <ExternalLink className="h-4 w-4" />
-    </span>
-  </div>
-);
-
 
 /* ------------------ Main Component ------------------ */
 const WorkShowcase = () => {
@@ -217,7 +155,9 @@ const WorkShowcase = () => {
               key={c.id}
               onClick={() => setActiveCategory(c.id)}
               className={`px-5 py-2 rounded-full text-sm ${
-                activeCategory === c.id ? 'bg-accent text-white' : 'border'
+                activeCategory === c.id
+                  ? 'bg-accent text-white'
+                  : 'border'
               }`}
             >
               {c.label}
@@ -227,17 +167,38 @@ const WorkShowcase = () => {
 
         {/* VIDEO EDITING */}
         {activeCategory === 'video' && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {videoItems.map((item) => (
-              <VideoCard
-                key={item.id}
-                {...item}
-                delay={200 + delayIndex++ * 80}
-                isVisible={isVisible}
-                onClick={() => setLightbox(item)}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {videoItems.map((item) => (
+                <VideoCard
+                  key={item.id}
+                  {...item}
+                  delay={200 + delayIndex++ * 80}
+                  isVisible={isVisible}
+                  onClick={() => setLightbox(item)}
+                />
+              ))}
+            </div>
+
+            {/* VIEW MORE BUTTON */}
+            <div className="mt-12 flex justify-center">
+              <a
+                href="https://drive.google.com/drive/folders/1D-cztJCrY8qNU9kKNScrtbR9RwMwuZaQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  inline-flex items-center gap-2
+                  px-8 py-3 rounded-full
+                  bg-accent text-white
+                  font-medium
+                  hover:scale-105 transition
+                "
+              >
+                View more
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
+          </>
         )}
 
         {/* GRAPHIC DESIGN */}
@@ -259,13 +220,13 @@ const WorkShowcase = () => {
             />
 
             {designItems.map((item) => (
-              <ImageCard
+              <div
                 key={item.id}
-                {...item}
-                delay={200 + delayIndex++ * 80}
-                isVisible={isVisible}
                 onClick={() => setLightbox(item)}
-              />
+                className="mb-6 break-inside-avoid cursor-pointer"
+              >
+                <img src={item.src} alt={item.title} />
+              </div>
             ))}
           </div>
         )}
@@ -274,12 +235,21 @@ const WorkShowcase = () => {
         {activeCategory === 'writing' && (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {writingItems.map((item) => (
-              <WritingCard
+              <div
                 key={item.id}
-                {...item}
-                delay={200 + delayIndex++ * 80}
-                isVisible={isVisible}
-              />
+                onClick={() => window.open(item.src, '_blank')}
+                className="p-6 rounded-2xl bg-card border cursor-pointer"
+              >
+                <h3 className="text-xl font-serif font-semibold mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {item.excerpt}
+                </p>
+                <span className="text-accent inline-flex items-center gap-2 text-sm">
+                  Read <ExternalLink className="h-4 w-4" />
+                </span>
+              </div>
             ))}
           </div>
         )}
