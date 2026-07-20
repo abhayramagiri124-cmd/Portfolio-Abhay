@@ -104,7 +104,7 @@ const Header = () => {
             asChild
           >
             <a
-              href="/resume/Abhay_Ramagiri_Resume.pdf"
+              href="/resume/Abhay_Ramagiri_resume1.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
