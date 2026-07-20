@@ -182,11 +182,11 @@ const ImpactSection = () => {
 
           <div className="col-span-12 lg:col-span-5">
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
 
               {/* Joy */}
 
-              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[4/5]">
+              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[3/4] sm:aspect-[4/5]">
 
                 <img
                   src="/impact/joy-travel-post.jpg"
@@ -214,7 +214,7 @@ const ImpactSection = () => {
 
               {/* First Client */}
 
-              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[4/5]">
+              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[3/4] sm:aspect-[4/5]">
 
                 <img
                   src="/impact/client-story.jpg"
@@ -225,7 +225,7 @@ const ImpactSection = () => {
 
                 <div className="absolute bottom-4 left-4 right-4">
 
-                  <h3 className="font-semibold text-[22px] leading-tight text-white">
+                  <h3 className="font-semibold text-base sm:text-lg lg:text-[22px] leading-tight text-white">
                     Meeting
                     <br />
                     The First
@@ -246,7 +246,7 @@ const ImpactSection = () => {
               </div>
                             {/* Chef Story */}
 
-              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[4/5]">
+              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[3/4] sm:aspect-[4/5]">
 
                 <img
                   src="/impact/chef-post.jpg"
@@ -257,7 +257,7 @@ const ImpactSection = () => {
 
                 <div className="absolute bottom-4 left-4">
 
-                  <h3 className="font-semibold text-[22px] leading-tight text-white">
+                  <h3 className="font-semibold text-base sm:text-lg lg:text-[22px] leading-tight text-white">
                     Chef Story
                     <br />
                   </h3>
@@ -275,7 +275,7 @@ const ImpactSection = () => {
 
               {/* Manali Family Story */}
 
-              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[4/5]">
+              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[3/4] sm:aspect-[4/5]">
 
                 <img
                   src="/impact/family-post.jpg"
@@ -304,7 +304,7 @@ const ImpactSection = () => {
 
               {/* Analytics */}
 
-              <div className="col-span-1 overflow-hidden rounded-3xl aspect-[4/5] bg-[#111827]">
+              <div className="col-span-1 overflow-hidden rounded-3xl aspect-[3/4] sm:aspect-[4/5] bg-[#111827]">
 
                 <img
                   src="/impact/analytics.jpg"
@@ -314,7 +314,7 @@ const ImpactSection = () => {
               </div>
               {/* Couple Story */}
 
-              <div className="col-span-1 overflow-hidden rounded-3xl aspect-[4/5] group">
+              <div className="col-span-1 overflow-hidden rounded-3xl aspect-[3/4] sm:aspect-[4/5] group">
                 <img
                   src="/impact/andaman-couple.jpg"
                   alt="Andaman Couple"
@@ -349,7 +349,7 @@ const ImpactSection = () => {
         <img
           src="/impact/content-built-banner.jpg"
           alt="Content Built for Business"
-          className="w-full h-[150px] object-cover"
+          className="w-full h-auto object-cover"
         />
 
       </div>
@@ -363,7 +363,7 @@ const ImpactSection = () => {
 
         <div className="mt-8 text-center">
 
-          <p className="font-playfair italic text-[22px] text-[#18362C]">
+          <p className="font-playfair italic text-base sm:text-lg lg:text-[22px] text-[#18362C]">
 
             “Good content is seen.
              Great content is remembered.”

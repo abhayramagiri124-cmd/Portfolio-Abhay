@@ -25,10 +25,9 @@ const HeroSection = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(
-      () => setCurrentQuote((prev) => (prev + 1) % quotes.length),
-      4000
-    );
+    const interval = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -36,29 +35,108 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden scroll-mt-24"
+      className="relative overflow-hidden scroll-mt-24"
       style={{
         marginTop: '-53px',
-        paddingTop: '130px',
-        paddingBottom: '70px',
+        paddingTop: '110px',
+        paddingBottom: '80px',
+        minHeight: '100vh',
         backgroundImage: "url('/hero/hero-bg1.png')",
-        backgroundSize: '110%',
-        backgroundPosition: '55% center',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
-      <div className="relative container-width mx-auto max-w-[1400px] px-8 lg:px-14 xl:px-20">
+      <div className="relative container-width mx-auto max-w-[1400px] px-6 md:px-8 lg:px-14 xl:px-20">
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
 
-          {/* LEFT */}
-          <div className="order-2 lg:order-1 text-center lg:text-left max-w-[620px]">
+          {/* ================= RIGHT IMAGE FIRST ON MOBILE ================= */}
+
+          <div className="order-1 lg:order-2 flex justify-center">
+
+            <div className="relative mt-2 lg:mt-0">
+
+              {/* Gold Ring */}
+              <div className="absolute inset-0 rounded-full border-2 border-accent/40 scale-105" />
+
+              {/* Image */}
+              <div className="
+                  relative
+                  w-[260px] h-[260px]
+                  sm:w-[320px] sm:h-[320px]
+                  md:w-[360px] md:h-[360px]
+                  lg:w-[400px] lg:h-[400px]
+                  rounded-full
+                  overflow-hidden
+                  border-4
+                  border-card
+                  shadow-2xl
+              ">
+                <img
+                  src="/lovable-uploads/93e074cd-60d1-4bcc-89ce-bad637329d15.jpg"
+                  alt="Abhay Ramagiri"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Quote Card */}
+              <div
+                className="
+                  absolute
+                  left-1/2
+                  -translate-x-1/2
+                  -bottom-8
+
+                  lg:left-auto
+                  lg:right-0
+                  lg:translate-x-0
+                  lg:-bottom-4
+
+                  bg-card
+                  rounded-2xl
+                  shadow-card
+                  border
+                  border-border
+
+                  w-[240px]
+                  md:w-[270px]
+
+                  p-4
+                "
+              >
+                <p className="text-sm text-muted-foreground italic text-center lg:text-left">
+                  "{quotes[currentQuote]}"
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ================= LEFT CONTENT ================= */}
+
+          <div className="
+                order-2
+                lg:order-1
+
+                text-center
+                lg:text-left
+
+                max-w-[640px]
+                mx-auto
+                lg:mx-0
+
+                pt-16
+                lg:pt-0
+          ">
 
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/40 bg-white/20 backdrop-blur mb-10">
+
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/40 bg-white/20 backdrop-blur mb-8">
 
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
 
@@ -70,7 +148,18 @@ const HeroSection = () => {
 
             {/* Heading */}
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
+            <h1 className="
+                font-serif
+                font-bold
+                text-white
+
+                text-5xl
+                sm:text-6xl
+                lg:text-6xl
+
+                leading-[0.95]
+                mb-6
+            ">
               Hi, I&apos;m Abhay
               <br />
               Ramagiri
@@ -78,15 +167,30 @@ const HeroSection = () => {
 
             {/* Subtitle */}
 
-            <p className="text-lg md:text-xl text-white/70 font-medium mb-4">
+            <p className="
+                text-lg
+                md:text-xl
+                text-white/80
+                font-medium
+                mb-5
+            ">
               Social Media Manager and Content Strategist helping brands turn
               attention into measurable growth.
             </p>
 
             {/* Description */}
 
-            <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
-              I design and execute campaigns that align creativity with business outcomes.
+            <p className="
+                text-white/85
+                text-lg
+                leading-9
+                mb-8
+                max-w-xl
+                mx-auto
+                lg:mx-0
+            ">
+              I design and execute campaigns that align creativity with
+              business outcomes.
             </p>
 
             {/* Skills */}
@@ -94,14 +198,12 @@ const HeroSection = () => {
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
 
               {skillChips.map((skill) => (
-
                 <span
                   key={skill}
                   className="px-4 py-2 rounded-full bg-white/90 text-foreground text-sm font-medium"
                 >
                   {skill}
                 </span>
-
               ))}
 
             </div>
@@ -111,7 +213,6 @@ const HeroSection = () => {
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
 
               <Button variant="heroOutline" size="lg" asChild>
-
                 <a
                   href="https://linkedin.com/in/abhay-ramagiri"
                   target="_blank"
@@ -120,7 +221,6 @@ const HeroSection = () => {
                   <Linkedin className="h-5 w-5" />
                   LinkedIn
                 </a>
-
               </Button>
 
               <a href="#impact" className="relative group">
@@ -139,20 +239,22 @@ const HeroSection = () => {
               </a>
 
             </div>
+                        {/* Stats */}
 
-            {/* Stats */}
-
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
 
               {stats.map((stat) => (
 
-                <div key={stat.label}>
+                <div
+                  key={stat.label}
+                  className="text-center lg:text-left"
+                >
 
-                  <p className="text-3xl font-bold text-white">
+                  <p className="text-3xl md:text-4xl font-bold text-white">
                     {stat.number}
                   </p>
 
-                  <p className="text-sm text-white/70">
+                  <p className="text-xs sm:text-sm text-white/70 mt-1">
                     {stat.label}
                   </p>
 
@@ -164,47 +266,15 @@ const HeroSection = () => {
 
           </div>
 
-          {/* RIGHT */}
-
-          <div className="order-1 lg:order-2 flex justify-center">
-
-            <div className="relative lg:-mt-10 lg:mr-12 xl:mr-20">
-
-              <div className="absolute inset-0 rounded-full border-2 border-accent/40 scale-105" />
-
-              <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-card shadow-2xl">
-
-                <img
-                  src="/lovable-uploads/93e074cd-60d1-4bcc-89ce-bad637329d15.jpg"
-                  alt="Abhay Ramagiri"
-                  className="w-full h-full object-cover"
-                />
-
-              </div>
-
-              {/* Quote */}
-
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-4 lg:translate-x-0 bg-card rounded-2xl shadow-card p-4 max-w-[260px] border border-border">
-
-                <p className="text-sm text-muted-foreground italic text-center lg:text-left">
-                  "{quotes[currentQuote]}"
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
         </div>
 
-        {/* Scroll */}
+        {/* Scroll Indicator */}
 
-        <div className="hidden md:flex justify-center mt-20 animate-bounce">
+        <div className="hidden lg:flex justify-center mt-20 animate-bounce">
 
           <a
             href="#about"
-            className="text-white/70 hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             <ChevronDown className="h-8 w-8" />
           </a>

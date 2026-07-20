@@ -173,7 +173,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 rounded-xl bg-white border border-red-100 flex items-center justify-center shadow-sm">
 
                   <img
-                    src="public/images/mica-logo.png"
+                    src="images/mica-logo.png"
                     alt="MICA"
                     className="w-7 h-7 object-contain"
                   />
