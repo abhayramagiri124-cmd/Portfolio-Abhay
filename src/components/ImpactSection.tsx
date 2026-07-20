@@ -82,21 +82,19 @@ const ImpactSection = () => {
 
         </div>
 
-        {/* ======================== */}
-
         <div className="grid grid-cols-12 gap-5">
 
           {/* LEFT STATS */}
 
-          <div className="col-span-12 lg:col-span-2">
+          <div className="col-span-12 lg:col-span-3">
 
-            <div className="rounded-3xl border border-[#DCE6E0] bg-white p-6 shadow-sm h-full">
+            <div className="rounded-3xl border border-[#DCE6E0] bg-white p-7 shadow-sm h-full">
 
               <p className="text-[10px] uppercase tracking-[0.32em] text-[#E58A2B] font-medium">
                 Impact Snapshot
               </p>
 
-              <h3 className="mt-4 font-playfair text-[34px] leading-tight text-[#18362C]">
+              <h3 className="mt-4 font-playfair text-[30px] leading-[1.1] tracking-[-0.02em] text-[#18362C]">
                 Numbers backed
                 <br />
                 by real
@@ -164,12 +162,15 @@ const ImpactSection = () => {
               <div className="absolute bottom-8 left-8 right-8">
 
                 <h3 className="font-playfair text-5xl leading-none text-white">
-                  Father & Son
+                  Father & Son on thier Andaman Trip
                 </h3>
+                <p className="mt-2 text-[11px] text-white/80">
+                    350K+ Views
+                  </p>
 
-                <p className="mt-3 text-2xl text-white/90">
-                  Story of Andaman
-                </p>
+                  <p className="text-[11px] text-white/80">
+                    1500+ Leads Generated
+                  </p>
 
               </div>
 
@@ -179,7 +180,7 @@ const ImpactSection = () => {
 
           {/* RIGHT COLLAGE */}
 
-          <div className="col-span-12 lg:col-span-6">
+          <div className="col-span-12 lg:col-span-5">
 
             <div className="grid grid-cols-3 gap-4">
 
@@ -192,17 +193,20 @@ const ImpactSection = () => {
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/>
 
-                <div className="absolute bottom-5 left-5">
+                <div className="absolute bottom-4 left-4">
 
-                  <h3 className="font-playfair text-4xl leading-none text-white">
-                    Joy
-                    <br />
-                    of
-                    <br />
-                    Travelling
-                  </h3>
+                  <h4 className="text-sm font-semibold leading-tight text-white">
+                    Carousal Post
+                  </h4>
+                  <p className="mt-2 text-[11px] text-white/80">
+                    190K+ Views
+                  </p>
+
+                  <p className="text-[11px] text-white/80">
+                    170+ New Followers
+                  </p>
 
                 </div>
 
@@ -219,9 +223,9 @@ const ImpactSection = () => {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"/>
 
-                <div className="absolute bottom-5 left-5">
+                <div className="absolute bottom-4 left-4 right-4">
 
-                  <h3 className="font-semibold leading-tight text-3xl text-white">
+                  <h3 className="font-semibold text-[22px] leading-tight text-white">
                     Meeting
                     <br />
                     The First
@@ -229,6 +233,152 @@ const ImpactSection = () => {
                     Client
                   </h3>
 
+                  <p className="mt-2 text-[11px] text-white/80">
+                    250K+ Views
+                  </p>
+
+                  <p className="text-[11px] text-white/80">
+                    +1K Followers
+                  </p>
+
                 </div>
 
               </div>
+                            {/* Chef Story */}
+
+              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[4/5]">
+
+                <img
+                  src="/impact/chef-post.jpg"
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"/>
+
+                <div className="absolute bottom-4 left-4">
+
+                  <h3 className="font-semibold text-[22px] leading-tight text-white">
+                    Chef Story
+                    <br />
+                  </h3>
+                  <p className="mt-2 text-[11px] text-white/80">
+                    342K+ Views
+                  </p>
+
+                  <p className="text-[11px] text-white/80">
+                    200+ comments
+                  </p>
+
+                </div>
+
+              </div>
+
+              {/* Manali Family Story */}
+
+              <div className="col-span-1 relative overflow-hidden rounded-3xl group aspect-[4/5]">
+
+                <img
+                  src="/impact/family-post.jpg"
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"/>
+
+                <div className="absolute bottom-4 left-4 right-4">
+
+                  <h4 className="text-sm font-semibold leading-tight text-white">
+                    Manali Family Story
+                  </h4>
+
+                  <p className="mt-1 text-[11px] text-white/80">
+                    308K Views
+                  </p>
+
+                  <p className="text-[11px] text-white/80">
+                    +700 Followers
+                  </p>
+
+                </div>
+
+              </div>
+
+              {/* Analytics */}
+
+              <div className="col-span-1 overflow-hidden rounded-3xl aspect-[4/5] bg-[#111827]">
+
+                <img
+                  src="/impact/analytics.jpg"
+                  className="w-full h-full object-cover"
+                />
+
+              </div>
+              {/* Couple Story */}
+
+              <div className="col-span-1 overflow-hidden rounded-3xl aspect-[4/5] group">
+                <img
+                  src="/impact/andaman-couple.jpg"
+                  alt="Andaman Couple"
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                
+
+              </div>
+
+
+
+            </div>
+            <div className="mt-5 overflow-hidden rounded-[32px]">
+              <img
+                src="/impact/stories-results.jpg"
+                alt="Content Built for Business"
+                className="w-full h-[150px] object-cover"
+              />
+            </div>
+
+          </div>
+
+        </div>
+        
+      
+
+        {/* ================= Banner ================= */}
+        {/* ================= Banner ================= */}
+
+      <div className="mt-4 overflow-hidden rounded-[28px]">
+
+        <img
+          src="/impact/content-built-banner.jpg"
+          alt="Content Built for Business"
+          className="w-full h-[150px] object-cover"
+        />
+
+      </div>
+
+        {/* ================= Banner ================= */}
+
+      
+
+        {/* ================= Quote ================= */}
+        {/* ================= Quote ================= */}
+
+        <div className="mt-8 text-center">
+
+          <p className="font-playfair italic text-[22px] text-[#18362C]">
+
+            “Good content is seen.
+             Great content is remembered.”
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  );
+
+};
+
+export default ImpactSection;
