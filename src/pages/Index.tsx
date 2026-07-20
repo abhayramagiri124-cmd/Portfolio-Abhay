@@ -7,7 +7,8 @@ import WorkShowcase from '@/components/WorkShowcase';
 import ContactSection from '@/components/ContactSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import StrategyToExecutionBridge from '@/components/StrategyToExecutionBridge';
-
+import BrandsSection from "@/components/BrandsSection";
+import ImpactSection from "@/components/ImpactSection";
 
 const Index = () => {
   return (
@@ -19,11 +20,15 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <ImpactSection />
+        <BrandsSection />
         <ExperienceSection />
         <ProjectsSection />
         <StrategyToExecutionBridge />
         <WorkShowcase />
         <ContactSection />
+        
+        
       </main>
     </>
   );
