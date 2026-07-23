@@ -41,7 +41,7 @@ const HeroSection = () => {
         paddingTop: '110px',
         paddingBottom: '80px',
         minHeight: '100vh',
-        backgroundImage: "url('/hero/hero-bg1.png')",
+        backgroundImage: "url('/hero/hero-bg2.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -223,11 +223,12 @@ const HeroSection = () => {
                 </a>
               </Button>
 
-              <a href="#impact" className="relative group">
+              <a href="#projects" className="relative group">
 
                 <span className="absolute inset-0 rounded-xl bg-primary/40 blur-lg opacity-60 group-hover:opacity-90 transition duration-500" />
 
                 <Button
+                
                   variant="heroOutline"
                   size="lg"
                   className="relative"
