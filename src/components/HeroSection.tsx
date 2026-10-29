@@ -12,7 +12,7 @@ const skillChips = [
   'Brand Storytelling',
   'Content Strategy',
   'Ad Scripting',
-  'Fiction',
+  'Cosumer Research',
 ];
 
 const stats = [
@@ -174,7 +174,7 @@ const HeroSection = () => {
                 font-medium
                 mb-5
             ">
-              Social Media Manager and Content Strategist helping brands turn
+              Brand Manager and Content Strategist helping brands turn
               attention into measurable growth.
             </p>
 
